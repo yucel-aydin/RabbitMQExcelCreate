@@ -280,3 +280,5 @@ C:\Users\4alabs-yucel\source\repos\RabbitMQExcelCreate\RabbitMQExcelCreate\Rabbi
 C:\Users\4alabs-yucel\source\repos\RabbitMQExcelCreate\RabbitMQExcelCreate\RabbitMQExcelCreate.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\4alabs-yucel\source\repos\RabbitMQExcelCreate\RabbitMQExcelCreate\RabbitMQExcelCreate.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\4alabs-yucel\source\repos\RabbitMQExcelCreate\RabbitMQExcelCreate\RabbitMQExcelCreate.Web\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\4alabs-yucel\source\repos\RabbitMQExcelCreate\RabbitMQExcelCreate\RabbitMQExcelCreate.Web\bin\Debug\net7.0\Shared.dll
+C:\Users\4alabs-yucel\source\repos\RabbitMQExcelCreate\RabbitMQExcelCreate\RabbitMQExcelCreate.Web\bin\Debug\net7.0\Shared.pdb

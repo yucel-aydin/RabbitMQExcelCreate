@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQExcelCreate.Web.Models;
+using RabbitMQExcelCreate.Web.Services;
 
 namespace RabbitMQExcelCreate.Web.Controllers
 {
@@ -11,10 +12,13 @@ namespace RabbitMQExcelCreate.Web.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppDbContext _context;
-        public ProductController(UserManager<IdentityUser> userManager, AppDbContext context)
+
+        private readonly RabbitMQPublisher _rabbitMQPublisher;
+        public ProductController(UserManager<IdentityUser> userManager, AppDbContext context, RabbitMQPublisher rabbitMQPublisher)
         {
             _userManager = userManager;
             _context = context;
+            _rabbitMQPublisher = rabbitMQPublisher;
         }
         public IActionResult Index()
         {
@@ -35,6 +39,13 @@ namespace RabbitMQExcelCreate.Web.Controllers
             await _context.UserFiles.AddAsync(userFile);
             await _context.SaveChangesAsync();
 
+            _rabbitMQPublisher.Publish(new Shared.CreateExcelMessage()
+            {
+                FileId = userFile.Id,
+                UserId = currentUser.Id
+
+            });
+
             TempData["StartCreatingExcel"] = true;
             return RedirectToAction(nameof(Files));
         }
@@ -43,7 +54,7 @@ namespace RabbitMQExcelCreate.Web.Controllers
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            return View(await _context.UserFiles.Where(x=>x.UserId==currentUser.Id).ToListAsync());
+            return View(await _context.UserFiles.Where(x => x.UserId == currentUser.Id).ToListAsync());
         }
     }
 }

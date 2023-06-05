@@ -20,6 +20,7 @@ namespace RabbitMQExcelCreate.Web
                 Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")),
                 DispatchConsumersAsync = true
             });
+            builder.Services.AddSingleton<RabbitMQPublisher>();
             builder.Services.AddSingleton<RabbitMQClientService>();
 
             builder.Services.AddDbContext<AppDbContext>(options =>
