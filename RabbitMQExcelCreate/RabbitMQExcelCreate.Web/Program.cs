@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
+using RabbitMQExcelCreate.Web.Hubs;
 using RabbitMQExcelCreate.Web.Models;
 using RabbitMQExcelCreate.Web.Services;
 
@@ -13,7 +14,7 @@ namespace RabbitMQExcelCreate.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+
 
             builder.Services.AddSingleton(sp => new ConnectionFactory()
             {
@@ -32,6 +33,9 @@ namespace RabbitMQExcelCreate.Web
                 opt.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>();
 
+            builder.Services.AddSignalR();
+
+            builder.Services.AddControllersWithViews();
             var app = builder.Build();
 
             using (var scope = app.Services.CreateScope())
@@ -72,6 +76,7 @@ namespace RabbitMQExcelCreate.Web
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            app.MapHub<MyHub>("/MyHub");
             app.Run();
         }
     }

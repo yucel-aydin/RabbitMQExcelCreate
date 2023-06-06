@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\4alabs-yucel\\source\\repos\\RabbitMQExcelCreate\\RabbitMQExcelCreate\\RabbitMQExcelCreate.Web\\wwwroot\\files\\product-excel-7c91da9-08.xlsx",
+      "PackagePath": "staticwebassets\\files\\product-excel-7c91da9-08.xlsx"
+    },
+    {
+      "Id": "C:\\Users\\4alabs-yucel\\source\\repos\\RabbitMQExcelCreate\\RabbitMQExcelCreate\\RabbitMQExcelCreate.Web\\wwwroot\\files\\product-excel-e1b4cd4-0c.xlsx",
+      "PackagePath": "staticwebassets\\files\\product-excel-e1b4cd4-0c.xlsx"
+    },
+    {
+      "Id": "C:\\Users\\4alabs-yucel\\source\\repos\\RabbitMQExcelCreate\\RabbitMQExcelCreate\\RabbitMQExcelCreate.Web\\wwwroot\\files\\product-excel-f581059-35.xlsx",
+      "PackagePath": "staticwebassets\\files\\product-excel-f581059-35.xlsx"
+    },
+    {
       "Id": "C:\\Users\\4alabs-yucel\\source\\repos\\RabbitMQExcelCreate\\RabbitMQExcelCreate\\RabbitMQExcelCreate.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -41,9 +41,7 @@ namespace RabbitMQExcelCreate.Web.Controllers
 
             _rabbitMQPublisher.Publish(new Shared.CreateExcelMessage()
             {
-                FileId = userFile.Id,
-                UserId = currentUser.Id
-
+                FileId = userFile.Id
             });
 
             TempData["StartCreatingExcel"] = true;
@@ -54,7 +52,7 @@ namespace RabbitMQExcelCreate.Web.Controllers
         {
             var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            return View(await _context.UserFiles.Where(x => x.UserId == currentUser.Id).ToListAsync());
+            return View(await _context.UserFiles.Where(x => x.UserId == currentUser.Id).OrderByDescending(x=>x.Id).ToListAsync());
         }
     }
 }
